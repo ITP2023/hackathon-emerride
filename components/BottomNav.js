@@ -6,8 +6,8 @@ import Icons from "@expo/vector-icons/Entypo";
 const styles =  StyleSheet.create({
   bottom_nav: {
   position: "absolute",
-  width: "360px",
-  height: "20%"
+  width: 360,
+  height: 61
   },
   insurance_area: {
 

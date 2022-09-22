@@ -5,11 +5,7 @@ import Icons from "@expo/vector-icons/Entypo";
 
 const styles = StyleSheet.create({
   top_nav: {
-    position: "absolute",
-    width: "360px",
-    height: "61px",
-    left: "0px",
-    top: "0px"
+    
   }
 })
 

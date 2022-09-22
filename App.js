@@ -1,15 +1,25 @@
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeScreen from "./screens/HomeScreen";
 
+import EntryScreen from "./screens/EntryScreen";
+
+const MY_THEME = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: "#FFFFFF"
+  }
+}
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    
+      <NavigationContainer theme={MY_THEME}>
+        <Stack.Navigator initialRouteName="Entry" screenOptions={{ headerShown: false}}>
+          <Stack.Screen name="Entry" component={EntryScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    
   );
 }
