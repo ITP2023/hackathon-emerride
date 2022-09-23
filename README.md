@@ -1,5 +1,8 @@
 # Emerride
 
+## Prototype link
+
+Figma: [View the protype here](https://www.figma.com/file/HG51wO3ZYLzqhaEkYZIVNd/Emerride-App?node-id=0%3A1)
 ### Important Note
 We are using [`expo`](https://expo.dev) instead of the `react-native` cli. Please feel free to suggest otherwise. As to what `expo` offers over `create-react-native`, below are some points:
 - No need to do seperate setup in android and iOS native files.
