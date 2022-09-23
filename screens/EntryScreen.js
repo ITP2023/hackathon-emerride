@@ -1,83 +1,24 @@
-import React from 'react';
+import React from "react";
 import {
   StyleSheet,
   Text,
   View,
   Image,
   Dimensions,
-  Animated,
+  Animated
 } from "react-native";
-
+import { Button } from "react-native-paper";
 import PagerView from "react-native-pager-view";
-import doctor_2_1 from "../assets/doctor_2_1.png";
+import entry_screen_1 from "../assets/entry_screen_1.png";
+import entry_screen_2 from "../assets/entry_screen_2.png";
+import entry_screen_3 from "../assets/entry_screen_3.png";
 
 
 const deviceWidth = Dimensions.get("window").width;
 const deviceHeigth = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  
-  imageStyle: {
-    width: deviceWidth * 0.75,
-    height: deviceHeigth,
-    resizeMode: "contain",
-    flex: 1,
-  },
-  textContainer: {
-    alignItems: "flex-start",
-    alignSelf: "flex-end",
-    flex: 0.5,
-  },
-  heading: {
-    color: "#444",
-    textTransform: "uppercase",
-    fontSize: 24,
-    fontWeight: "800",
-    letterSpacing: 2,
-    marginBottom: 5,
-  },
-
-  pagination: {
-    position: "absolute",
-    right: 0,
-    bottom: 0,
-    flexDirection: "row",
-    height: 40,
-  },
-  paginationDot: {
-    width: 10,
-    height: 10,
-    borderRadius: 50,
-  },
-  paginationDotContainer: {
-    width: DOT_SIZE,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  paginationIndicator: {
-    width: DOT_SIZE,
-    height: DOT_SIZE,
-    borderRadius: DOT_SIZE / 2,
-    borderWidth: 2,
-    borderColor: '#ddd',
-  },
-  circleContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  
-  main: {
-    width: deviceWidth,
-    height: 150,
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "center",
-  },
-  body: {  
+  body: {
     position: "relative",
     width: deviceWidth,
     height: deviceHeigth - 50,
@@ -88,117 +29,178 @@ const styles = StyleSheet.create({
     alignItems: "center",
     top: 50
   },
-  skip_section: {
-    maxWidth: 37,
-    maxHeight: 22,
-    left: 150
-  },
-  banner_style: {
+  page: {
     width: deviceWidth,
-    height: 234
+    height: 400,
+    borderColor: "black"
+  },
+  image_style: {
+    maxWidth: deviceWidth,
+    flex: 1, justifyContent: "center",
+    flexDirection: "row",
+    maxHeight: 300
   },
   front_label_text: {
-    width: deviceWidth - 100,
+    width: deviceWidth - 40,
+    textAlign: "center"
+  },
+  pagination_container: {
+    width: deviceWidth,
     height: 50,
-    textAlign: "center",
-    fontSize: 15
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center"
+  },
+  pagination_page_tab: {
+    borderRadius: 50,
+    backgroundColor: "#d9d9d9",
+    width: 20,
+    height: 20,
+    marginRight: 5
+  },
+  skip_area: {
+    width: deviceWidth,
+    height: 40,
+    textAlign: "right"
+  },
+  action_section: {
+    width: deviceWidth,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around"
+  },
+  login_btn: {
+    width: deviceWidth,
+    backgroundColor: "white",
+    color: "black"
+  },
+  signup_btn: {
+    width: deviceWidth
+  },
+  pagination_page_tab_current: {
+    borderRadius: 50,
+    backgroundColor: "black",
+    width: 20,
+    height: 20,
+    marginRight: 5
   }
 });
 
 const FirstTab = () => {
-  const {imageStyle, main, banner_style, front_label_text} = styles;
+  const { page, image_style, front_label_text, description } = styles;
   return (
-    <View style={main}>
-<Image style={imageStyle} source={doctor_2_1}  />
-<Text style={front_label_text}>Get your nearest Ambulance
-on just one click</Text>
-
-</View>
-  )
+    <View style={page}>
+      <Image style={image_style} source={entry_screen_1}  />
+      <View style={description}>
+        <Text style={front_label_text}>
+          Get your nearest Ambulance on just one click
+        </Text>
+      </View>
+    </View>
+  );
 }
 
-const SecondTab = () => <View><Text>2</Text></View>
-const ThirdTab = () => <View><Text>3</Text></View>
+const SecondTab = () => {
+  const { page, image_style, front_label_text, description } = styles;
+  return (
+    <View style={page}>
+      <Image 
+        source={entry_screen_2}
+        style={image_style}
+      />
+      <View style={description}>
+        <Text style={front_label_text}>Check live updates of your medical Insurance</Text>
+      </View>
+    </View>
+  );
+}
+const ThirdTab = () => {
+  const { page, image_style, front_label_text } = styles;
+  return (
+    <View style={page}>
+      <Image
+        source={entry_screen_3}
+        style={image_style}
+      />
+      <Text style={front_label_text}>First Aid tutorials to help you
+ in any medical emergency</Text>
+    </View>
+  );
+}
 
 
-const TABS_NUM = 3;
-const DOT_SIZE = 40;
 
 const RANGE = [0, 1, 2];
 
 
-const Pagination = ({
-  scrollOffsetAnimatedValue,
-  positionAnimatedValue,
-}) => {
-  const inputRange = [0, TABS_NUM];
-  const translateX = Animated.add(
-    scrollOffsetAnimatedValue,
-    positionAnimatedValue
-  ).interpolate({
-    inputRange,
-    outputRange: [0, TABS_NUM * 10],
-  });
+const Pagination = ({ current, scrollOffsetAnimatedValue, positionAnimatedValue }) => {
+  const { pagination_container, pagination_page_tab, pagination_page_tab_current } = styles;
 
   return (
-    <View style={styles.pagination}>
-      <Animated.View
-        style={() => ({
-          ...styles.paginationIndicator,
-          position: "absolute",
-          transform: [{ translateX: translateX }],
-        })}
-      />
-      {RANGE.map((item) => {
-        return (
-          <View key={item.key} style={styles.paginationDotContainer}>
-            <View
-              style={styles.paginationDot}
-            />
-          </View>
-        );
-      })}
+    <View style={pagination_container}>
+      {
+        RANGE.map((i) => (
+          <View key={i} style={i === current ? pagination_page_tab_current : pagination_page_tab} />
+        ))
+      }
     </View>
   );
 };
 
 const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
 
-export default function EntryScreen() {
-  const { container } = styles;
-  const scrollOffsetAnimatedValue = React.useRef(new Animated.Value(0)).current;
-  const positionAnimatedValue = React.useRef(new Animated.Value(0)).current;
+export default function EntryScreen({ navigation }) {
+  console.log(navigation ? "NO PROBLEM" : "PROBLEM");
+  const { body, action_section, login_btn, signup_btn, skip_area } = styles;
+  const [ index, setIndex ] = React.useState(0);
 
   return (
-    <View style={container}>
+    <View style={body}>
+      <View style={skip_area}>
+        <Text style={{right: 10, textAlign: "right"}}>Skip</Text>
+      </View>
       <AnimatedPagerView
         initialPage={0}
         style={{
           width: "100%",
-          height: "50%"
+          height: deviceHeigth - 200
         }}
-        onPageScroll={Animated.event(
-          [
-            {
-              nativeEvent: {
-                offset: scrollOffsetAnimatedValue,
-                position: positionAnimatedValue,
-              },
-            },
-          ],
-          {
-            useNativeDriver: true,
+        onPageScroll={
+          (e) => {
+            setIndex(e.nativeEvent.position);
           }
-        )}
+        }
       >
         <FirstTab />
         <SecondTab/>
         <ThirdTab/>
       </AnimatedPagerView>
       <Pagination
-        scrollOffsetAnimatedValue={scrollOffsetAnimatedValue}
-        positionAnimatedValue={positionAnimatedValue}
+        current={index}
       />
+      <View style={action_section}>
+        <Button 
+          mode="outlined"
+          textColor="black"
+          contentStyle={{
+            width: deviceWidth/2 - 20,
+            borderRadius: "none"
+          }}
+        >
+          LOG IN
+        </Button>
+        <Button 
+          mode="elevated"
+          buttonColor="black"
+          textColor="white"
+          contentStyle={{
+            width: deviceWidth/2 - 20,
+            borderRadius: 2
+          }}
+        >
+          SIGN UP
+        </Button>
+      </View>
     </View>
   );
 }
