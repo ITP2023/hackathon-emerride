@@ -1,4 +1,4 @@
-# Our Hackathon SOS App
+# Emerride
 
 ### Important Note
 We are using [`expo`](https://expo.dev) instead of the `react-native` cli. Please feel free to suggest otherwise. As to what `expo` offers over `create-react-native`, below are some points:

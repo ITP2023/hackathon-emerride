@@ -1,13 +1,20 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { 
+  Text, View, StyleSheet, Dimensions } from "react-native";
 import Icons from "@expo/vector-icons/Entypo";
+
+
+const deviceWidth = Dimensions.get("window").width;
+const deviceHeigth = Dimensions.get("window").height;
 
 
 const styles =  StyleSheet.create({
   bottom_nav: {
-  position: "absolute",
-  width: 360,
-  height: 61
+    position: "absolute",
+    top: deviceHeigth - 80,
+    width: 360,
+    height: 61,
+    backgroundColor: "E6E8F3"
   },
   insurance_area: {
 

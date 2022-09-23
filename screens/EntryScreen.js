@@ -5,7 +5,7 @@ import {
   View,
   Image,
   Dimensions,
-  Animated
+  Pressable
 } from "react-native";
 import { Button } from "react-native-paper";
 import PagerView from "react-native-pager-view";
@@ -42,7 +42,8 @@ const styles = StyleSheet.create({
   },
   front_label_text: {
     width: deviceWidth - 40,
-    textAlign: "center"
+    textAlign: "center",
+    fontSize: 20
   },
   pagination_container: {
     width: deviceWidth,
@@ -87,30 +88,26 @@ const styles = StyleSheet.create({
 });
 
 const FirstTab = () => {
-  const { page, image_style, front_label_text, description } = styles;
+  const { page, image_style, front_label_text } = styles;
   return (
     <View style={page}>
       <Image style={image_style} source={entry_screen_1}  />
-      <View style={description}>
         <Text style={front_label_text}>
           Get your nearest Ambulance on just one click
         </Text>
-      </View>
     </View>
   );
 }
 
 const SecondTab = () => {
-  const { page, image_style, front_label_text, description } = styles;
+  const { page, image_style, front_label_text } = styles;
   return (
     <View style={page}>
       <Image 
         source={entry_screen_2}
         style={image_style}
       />
-      <View style={description}>
-        <Text style={front_label_text}>Check live updates of your medical Insurance</Text>
-      </View>
+      <Text style={front_label_text}>Check live updates of your medical Insurance</Text>
     </View>
   );
 }
@@ -147,7 +144,6 @@ const Pagination = ({ current, scrollOffsetAnimatedValue, positionAnimatedValue 
   );
 };
 
-const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
 
 export default function EntryScreen({ navigation }) {
   console.log(navigation ? "NO PROBLEM" : "PROBLEM");
@@ -157,9 +153,13 @@ export default function EntryScreen({ navigation }) {
   return (
     <View style={body}>
       <View style={skip_area}>
-        <Text style={{right: 10, textAlign: "right"}}>Skip</Text>
+        <Pressable onPress={(e) => {
+          navigation.navigate("Home");
+        }}>
+          <Text style={{right: 10, textAlign: "right"}}>Skip</Text>
+        </Pressable>
       </View>
-      <AnimatedPagerView
+      <PagerView
         initialPage={0}
         style={{
           width: "100%",
@@ -174,7 +174,7 @@ export default function EntryScreen({ navigation }) {
         <FirstTab />
         <SecondTab/>
         <ThirdTab/>
-      </AnimatedPagerView>
+      </PagerView>
       <Pagination
         current={index}
       />
