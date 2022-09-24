@@ -6,6 +6,7 @@ Figma: [View the protype here](https://www.figma.com/file/HG51wO3ZYLzqhaEkYZIVNd
 
 ## Download the App
 
+Note that app download is only available to android devices for now
 Expo link to `.apk`: [Download after following the steps here](https://expo.dev/accounts/ihabt/projects/hackathon-emerride/builds/b62c8c94-a76d-448f-8fe0-fb15dcf5a843)
 
 ### Important Note
