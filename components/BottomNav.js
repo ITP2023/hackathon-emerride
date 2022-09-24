@@ -21,7 +21,7 @@ const styles =  StyleSheet.create({
     backgroundColor: "#E6E8F3",
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center"
+    justifyContent: "space-evenly"
   },
   bottom_nav_tab_area: {
     width: "auto",
@@ -35,15 +35,24 @@ const styles =  StyleSheet.create({
     height: "60%"
   },
   sos_button_area: {
-    width: "20%",
+    width: 70,
+    elevation: 8,
+    bottom: 30,
     borderRadius: 60,
     backgroundColor: "red",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  sos_text: {
+    alignSelf: "center",
     color: "white"
   }
 });
 
 export default function BottomNav() {
-  const { bottom_nav, bottom_nav_tab_area, sos_button_area, bottom_nav_tab_icon } = styles;
+  const { bottom_nav, bottom_nav_tab_area, sos_button_area, bottom_nav_tab_icon, sos_text } = styles;
   return (
     <View style={bottom_nav}>
         <View style={bottom_nav_tab_area}>
@@ -51,7 +60,7 @@ export default function BottomNav() {
           <Text>Insurance</Text>
         </View>
         <View style={sos_button_area}>
-          <Text style={{ alignSelf: "center" }}>SOS</Text>
+          <Text style={sos_text}>SOS</Text>
         </View>
         <View style={bottom_nav_tab_area}>
           <Image style={bottom_nav_tab_icon} source={first_aid_on_bottom_nav} />
