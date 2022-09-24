@@ -5,32 +5,40 @@ import {
   StyleSheet, 
   Dimensions
 } from "react-native";
-import Icon from "@expo/vector-icons/Entypo";
+import { Entypo, FontAwesome5 } from "@expo/vector-icons";
 
 const deviceWidth = Dimensions.get("window").width;
-const deviceHeigth = Dimensions.get("window").height;
+const deviceHeight = Dimensions.get("window").height;
 
 
 const styles = StyleSheet.create({
   top_nav: {
-    width: deviceWidth,
+    width: deviceWidth - 20,
     height: 30,
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between"
+  },
+  location_area: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    width: "40%",
+    height: "auto"
   }
 })
 
 export default function TopNav() {
+  const { top_nav, location_area } = styles;
   return (
-    <View style={styles.top_nav}>
-      <View>
-        <Icon name="location" size={20} />
+    <View style={top_nav}>
+      <View style={location_area}>
+        <Entypo name="location-pin" size={30} />
         <Text>Location</Text>
-        <Icon name="chevron-down" size={20} />
+        <Entypo name="chevron-down" size={20} />
       </View>
       <View>
-        <Icon name="user" size={20}/>
+        <FontAwesome5 name="user-alt" size={30} />
       </View>
     </View>
   );

@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "hackathon-emerride",
-    "slug": "hackathon-emerride",
+    "slug": "harnoor-hackathon-sos-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,7 +25,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.ihabt.hackathonsosapp"
+      "package": "com.ihabt.hackathonemerride"
     },
     "web": {
       "favicon": "./assets/favicon.png"

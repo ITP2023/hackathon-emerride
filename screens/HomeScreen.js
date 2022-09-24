@@ -15,14 +15,14 @@ import BottomNav from "../components/BottomNav";
 // import map_view from "../assets/map_view.png";
 
 const deviceWidth = Dimensions.get("window").width;
-const deviceHeigth = Dimensions.get("window").height;
+const deviceHeight = Dimensions.get("window").height;
 
 
 const styles = StyleSheet.create({
   body: {
     position: "relative",
     width: deviceWidth,
-    height: deviceHeigth,
+    height: deviceHeight - 50,
     background: "#FFFFFF",
     flex: 1,
     flexDirection: "column",
@@ -32,33 +32,20 @@ const styles = StyleSheet.create({
   },
   main: {
     width: deviceWidth,
-    height: deviceHeigth - 50,
-  },
-  top_nav: {
-    width: deviceWidth,
-    height: "auto"
-  },
-  app_banner: {
-    width: deviceWidth - 30
-  },
-  ad_banner: {
-    width: deviceWidth,
-  },
-  map_view: {
-    width: deviceWidth,
-    height: 300
-  },
-  bottom_nav: {
-    width: deviceWidth
+    height: deviceHeight - 50,
   }
 });
 
 
 export default function HomeScreen({ navigation }) {
-  const { body, stop_nav, sapp_banner, sad_banner, smap_view, sbottom_nav } = styles;
+  const { body, main } = styles;
   return (
     <View style={body}>
-      {/** TODO */}
+      <TopNav/>
+      <View>
+        
+      </View>
+      <BottomNav/>
     </View>
   );
 }
