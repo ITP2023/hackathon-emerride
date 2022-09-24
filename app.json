@@ -1,7 +1,8 @@
 {
   "expo": {
     "name": "hackathon-emerride",
-    "slug": "harnoor-hackathon-sos-app",
+    "slug": "hackathon-emerride",
+    "owner": "ihabt",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -32,7 +33,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "54d723fa-ecf5-4e92-a272-5be106ec2476"
+        "projectId": "9b1ef8e1-d3fb-4ec5-adeb-f17c570b5207"
       }
     }
   }
